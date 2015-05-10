@@ -70,11 +70,12 @@ Should contain the full path and along with the file name. If only a file name i
 
 2. Age_In_Minutes : How old is old ? (Example, more than 24 hours old or more than a week old). 
 Should be a positive integer. 
+
 3. Alert_Frequency_In_Minutes : How often should a user be alerted ? (Can be different, and typically should be different, from Files Age as above. 
 
-For example, your backup frequency can be daily and alert frequency (where backup has not happened) can be hourly. An alert frequency of 1 hour means, you don't want to be alerted more often than hourly, if the scheduled task keeps checking of file updates, say, every 15 minutes. 
+	For example, your backup frequency can be daily and alert frequency (where backup has not happened) can be hourly. An alert frequency of 1 hour means, you don't want to be alerted more often than hourly, if the scheduled task keeps checking of file updates, say, every 15 minutes. 
 
-Should be a positive integer. 
+	Should be a positive integer. 
 
 4. Check_URL : Which URL should I attempt to download, to check for an internet connection ? Should be a valid URL. 
 
@@ -84,11 +85,11 @@ Should be a positive integer.
 
 7. Word_To_Find_In_Page  : Once the said web page is downloaded, do you want to check for the presence of any particular word or phrase ? 
 
-(Example : cookie . In my case, the proxy would return as if the web page www.google.com was downloaded, so the html wouldn't contain the actual web page sent by Google. I would check for the word 'cookie', for instance, to see if the page was sent by Google. (My proxy's return page wouldn't contain the word, if it didn't connect to Google). This parameter is optional. 
+	(Example : cookie . In my case, the proxy would return as if the web page www.google.com was downloaded, so the html wouldn't contain the actual web page sent by Google. I would check for the word 'cookie', for instance, to see if the page was sent by Google. (My proxy's return page wouldn't contain the word, if it didn't connect to Google). This parameter is optional. 
 
 8. Batch_FileName_WithPath_If_Connection_Successful : Perhaps the most important parameter. If the files are found to be old and internet connection is present, what batch file can I run to update the files ? 
 
-Should contain the full path and along with the file name. If only a file name is present, current application path will be assumed. 
+	Should contain the full path and along with the file name. If only a file name is present, current application path will be assumed. 
 
 9. Wait_On_Finish : After you finish the task of downloading, show a prompt before finish for user to acknowledge, saying.. "Press any key to continue."
 
