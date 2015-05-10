@@ -1,5 +1,5 @@
 # ModiBatudu
-Check for file last-modified, check for internet connection, if exists, run a batch file. 
+Check for last-modified-date-time of a given file, check for internet connection, if exists, run a batch file. 
 
 ModiBatudu User Guide
 
