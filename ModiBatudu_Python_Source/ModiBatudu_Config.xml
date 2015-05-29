@@ -2,13 +2,13 @@
 <NetBatudu_Config>
 
 	<!-- Which file's Last-Modified-Date-Time should I check to run the batch file/do file updates ? --> 
-	<File_To_Check_Last_Modi>D:\YourFolderGoesHere\Example_Your_FTP_Backup_Log.txt</File_To_Check_Last_Modi>
+	<File_To_Check_Last_Modi>Sample_FileToCheck_LastModi.txt</File_To_Check_Last_Modi>
 	
 	<!-- Files should be updated how often ? .Must be a positive integer--> 	
-	<Age_In_Minutes>180</Age_In_Minutes>
+	<Age_In_Minutes>0</Age_In_Minutes>
 	
 	<!-- How often should the user be alerted.? (To avoid multiple annoying alerts) .Must be a positive integer--> 	
-	<Alert_Frequency_In_Minutes>60</Alert_Frequency_In_Minutes>	
+	<Alert_Frequency_In_Minutes>0</Alert_Frequency_In_Minutes>	
 	
 <!-- Try to open the page in this URL to check if internet connection exists .Must be a valid URL. --> 
 	<Check_URL>http://www.google.com</Check_URL>

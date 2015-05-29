@@ -120,6 +120,16 @@ class Settings(EgStore):
 		self.filename = filename  # this is required
 		self.restore()            # restore values from the storage file if possible
 
+	# This additional method over-ride below was suggested by a helpful person : 
+	# davidism@stackoverflow 
+	# http://stackoverflow.com/users/400617/davidism
+	# to cover a possible easyGUI bug where easyGUI remembered earlier path where the application was run and was expecting it, in spite of another path being passed in here. 
+	
+	def restore(self):
+		filename = self.filename
+		EgStore.restore(self)
+		self.filename = filename		
+
 #-----------------------------------------------------------------------------------------		
 
 FQconfig =  getConfigFileFullPath(config_name); #Get the full path of config file. 
