@@ -1,1 +1,0 @@
-echo "Oops - Could not connect to Internet Sir... "
