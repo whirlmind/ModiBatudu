@@ -67,11 +67,13 @@ def exitMe():
 		intWaitForUser = 0;		
 	sys.exit()
 		
-def checkNetConn(xToCheckURL, xWordToFind, xIsAddRandom):		
+def checkNetConn(xToCheckURL, xWordToFind, xIsAddRandom, xInt_TimeOutSeconds):		
 	#Default values. 
 	connStatus = 0;
 	foundStatus = 0;
 	foundWordCharIndex = -99999;
+	if (xInt_TimeOutSeconds is None):
+		xInt_TimeOutSeconds = 0;		
 	
 	if (xIsAddRandom == True):
 		xToCheckURL = xToCheckURL + "?My_Nocache_UUID=" + str(uuid.uuid4());	#If set to 1, add random GUID to URL. 
@@ -80,7 +82,7 @@ def checkNetConn(xToCheckURL, xWordToFind, xIsAddRandom):
 	#Attempt to open the web page. 
 	#If successful, get page contents. 
 	try:
-		objResponsePage = urllib.request.urlopen(xToCheckURL, None, 1);
+		objResponsePage = urllib.request.urlopen(xToCheckURL, None, xInt_TimeOutSeconds);
 		strPageContents = str(objResponsePage.read())	;
 	except urllib.request.URLError:
 		pass
@@ -281,7 +283,7 @@ isRunBatchFile = False;
 #(b) he connects to Internet and comes back to press the Continue button for the files update to proceed. 
 
 while (hasProperReply == False):
-	foundStatus = checkNetConn(checkURL, wordToFind, is_SkipCacheId)
+	foundStatus = checkNetConn(checkURL, wordToFind, is_SkipCacheId, intTimeOutSeconds)
 		
 	if (foundStatus == 1): #If success, run batch file pertaining to success. 
 		myMsg = ("Files due for update." + "\n" + " Last updated : " + str(myTimeStampReadable) + "\n" + 
@@ -300,7 +302,7 @@ while (hasProperReply == False):
 		hasProperReply = True;
 		exitMe();
 	else: #User chooses to continue. 
-		foundStatus = checkNetConn(checkURL, wordToFind, is_SkipCacheId)	
+		foundStatus = checkNetConn(checkURL, wordToFind, is_SkipCacheId, intTimeOutSeconds)	
 		if (foundStatus == 0): 
 			#User chose to continue, but did not connect to Internet. Go back to looping the alerts. 
 			hasProperReply = False;			
@@ -311,7 +313,7 @@ while (hasProperReply == False):
 
 if (isRunBatchFile == True):
 	if (successBatchFileNameWithPath != ""):
-		subprocess.call(successBatchFileNameWithPath);
+		subprocess.check_call(successBatchFileNameWithPath);
 		errMe("Done! ModiBatudu task successful... All eez well..", "0", log_file_name, errHappened);			
 		exitMe();		
 	else:
